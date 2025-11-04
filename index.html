@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="valentine">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An immersive digital love letter experience with animations, themes, and personalization."
+    />
+    <meta
+      name="keywords"
+      content="love letter, valentine, confession, romantic web app, Tailwind CSS, daisyUI"
+    />
+    <meta name="author" content="Your Name" />
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#ff6b8b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="HeartScript Love Letter" />
+    <meta
+      property="og:description"
+      content="Create the perfect digital confession for your crush."
+    />
+    <meta
+      property="og:image"
+      content="https://via.placeholder.com/1200x630?text=HeartScript+OG+Image"
+    />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- daisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS Link (for overrides and animations) -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>HeartScript Love Letter: Eternal Confession</title>
+  </head>
+  <body
+    class="font-quicksand bg-gradient-to-br from-pink-100 to-pink-50 min-h-screen flex items-center justify-center overflow-hidden transition-all duration-500"
+  >
+    <!-- Main Container -->
+    <div
+      class="valentine-container relative w-full min-h-screen flex flex-col items-center justify-center p-4 md:p-8 lg:p-12"
+    >
+      <!-- Instruction Text -->
+      <p
+        class="instruction absolute top-1/4 text-pink-500 text-lg md:text-2xl lg:text-3xl opacity-80 text-center z-10 animate-fadeInOut"
+      >
+        Tap the heart to unveil the magic!
+      </p>
+
+      <!-- Interactive Container -->
+      <div
+        class="interactive-container relative w-full h-screen flex items-center justify-center transition-background duration-500"
+      >
+        <!-- Heart Toggle Label -->
+        <label
+          class="heart-toggle cursor-pointer z-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300"
+        >
+          <input
+            type="checkbox"
+            id="messageToggle"
+            class="toggle-input hidden"
+            aria-label="Toggle love letter"
+          />
+          <!-- Heart SVG -->
+          <div
+            class="heart w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center filter drop-shadow-md"
+          >
+            <svg
+              class="heart-svg w-full h-full fill-current text-pink-400 animate-heartbeat transform-origin-center"
+              viewBox="0 0 32 29.6"
+            >
+              <path
+                d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                            c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"
+              />
+            </svg>
+          </div>
+        </label>
+
+        <!-- Message Card (daisyUI Card) -->
+        <div
+          class="message-card card bg-white shadow-xl max-h-0 overflow-hidden opacity-0 transition-all duration-500 transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 w-11/12 md:w-3/4 lg:w-1/2 xl:w-1/3 p-0 rounded-2xl z-5"
+          id="messageCard"
+          aria-hidden="true"
+          role="dialog"
+        >
+          <div class="card-body p-4 md:p-6 lg:p-8 overflow-y-auto max-h-[70vh]">
+            <!-- Title -->
+            <h1
+              class="message-title card-title font-cinzel text-3xl md:text-4xl lg:text-5xl text-pink-500 text-center mb-4 letter-spacing-wider"
+            >
+              Dear <span id="recipientName">Crush</span>,
+            </h1>
+            <!-- Content -->
+            <div
+              class="message-content text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed text-justify md:text-left"
+            >
+              <p id="messagePara1" class="mb-4">
+                I've been keeping this in for a while, but I think Valentine's
+                Day is the perfect time to say it—you're the reason my days feel
+                brighter. Every little moment with you means more than I can put
+                into words. Your smile, your laughter, the way you make
+                everything feel lighter—it all makes my heart race in the best
+                way possible.
+              </p>
+              <p id="messagePara2" class="mb-4">
+                So, here it is… I like you, a lot. Maybe even love. Would you be
+                my Valentine? No matter your answer, I just wanted you to know
+                how special you are to me. You've filled my heart with warmth in
+                ways I never expected, and for that, I'm grateful. But if you
+                say yes, I promise to make every day feel like Valentine's Day
+                for you—to cherish you, to make you smile, and to remind you
+                just how much you mean to me.
+              </p>
+            </div>
+            <!-- Signature -->
+            <div class="signature text-left font-cinzel">
+              <p class="with-love font-bold text-lg md:text-xl mb-2">
+                With Eternal Love,
+              </p>
+              <p
+                class="admire text-pink-500 text-base md:text-lg"
+                id="senderName"
+              >
+                Your Secret Admirer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Switcher (daisyUI Dropdown) -->
+      <div class="theme-switcher absolute top-4 right-4 z-30">
+        <div class="dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-ghost btn-circle">
+            <svg
+              class="w-6 h-6 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v4H9v2h2v4h2v-4h2v-2h-2V9z"
+              />
+            </svg>
+          </label>
+          <ul
+            tabindex="0"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li><a onclick="changeTheme('light')">Light Theme</a></li>
+            <li><a onclick="changeTheme('dark')">Dark Theme</a></li>
+            <li><a onclick="changeTheme('valentine')">Valentine Theme</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Settings Modal (daisyUI Modal) -->
+      <div class="modal" id="settingsModal">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg">Settings</h3>
+          <div class="py-4">
+            <label class="label cursor-pointer">
+              <span class="label-text">Mute Sounds</span>
+              <input type="checkbox" id="muteToggle" class="toggle" />
+            </label>
+            <button class="btn btn-primary mt-4" onclick="personalizeMessage()">
+              Personalize Message
+            </button>
+          </div>
+          <div class="modal-action">
+            <label for="settingsModal" class="btn">Close</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Settings Button -->
+      <button
+        class="btn btn-circle btn-ghost absolute top-4 left-4 z-30"
+        onclick="document.getElementById('settingsModal').showModal()"
+      >
+        <svg
+          class="w-6 h-6 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- JavaScript Script -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

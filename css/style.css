@@ -1,0 +1,497 @@
+/* Root Variables for Custom Theming */
+:root {
+  --primary-color: #ff6b8b; /* Pink for hearts */
+  --secondary-color: #ffa7ba; /* Softer pink for accents */
+  --background-light: #fff5f7; /* Light background */
+  --text-dark: #333; /* Dark text */
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* daisyUI Theme Overrides */
+[data-theme="valentine"] {
+  --primary: var(--primary-color);
+  --secondary: var(--secondary-color);
+  --accent: #ff4757;
+  --neutral: #ffeef2;
+  --base-100: var(--background-light);
+  --info: #ff3742;
+  --success: #ff6b8b;
+  --warning: #ffa7ba;
+  --error: #ff4757;
+}
+
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles (Overridden by Tailwind in HTML) */
+body {
+  font-family: "Quicksand", sans-serif;
+  /* Background handled in HTML class */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Instruction Animation */
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.instruction {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* Heart Styles */
+.heart-svg {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+    fill: var(--primary-color);
+  }
+  25% {
+    transform: scale(1.15);
+    fill: #ff4757;
+  }
+  30% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+    fill: #ff3742;
+  }
+}
+
+/* Message Card Transitions */
+.message-card.open {
+  max-height: 80vh !important;
+  padding: clamp(20px, 5vw, 40px) !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Heart Movement */
+.heart-toggle.moved {
+  top: 85% !important;
+  transform: translate(-50%, 0) !important;
+}
+
+/* Background Transition */
+.interactive-container.active {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Confetti Styles (JS Generated) */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Scrollbar Styles for Message Card */
+.message-card {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+.message-card::-webkit-scrollbar {
+  width: 6px;
+}
+.message-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+.message-card::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .heart-svg {
+    animation: none !important;
+  }
+}
+
+/* Responsive Media Queries (Enhancing Tailwind's Responsiveness) */
+@media (max-width: 640px) {
+  /* Mobile */
+  .heart {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .message-card {
+    width: 95% !important;
+  }
+  .message-content {
+    text-align: left !important;
+  }
+  .instruction {
+    font-size: 1.2rem !important;
+  }
+  .message-title {
+    font-size: 2rem !important;
+  }
+  .message-content {
+    font-size: 1rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Small Tablets */
+  .heart {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .message-card {
+    width: 90% !important;
+  }
+  .instruction {
+    font-size: 1.4rem !important;
+  }
+  .message-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* iPad/Large Tablets */
+  .heart {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .message-card {
+    width: 80% !important;
+  }
+  .instruction {
+    font-size: 1.6rem !important;
+  }
+  .message-title {
+    font-size: 3rem !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Laptops */
+  .heart {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .message-card {
+    width: 70% !important;
+  }
+}
+
+@media (min-width: 1281px) {
+  /* Desktops/4K */
+  .heart {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .message-card {
+    width: 50% !important;
+  }
+  .instruction {
+    font-size: 2rem !important;
+  }
+}
+
+/* Additional Custom Animations for Expansion */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Theme-Specific Styles */
+[data-theme="light"] {
+  --primary: #ff6b8b;
+  --base-100: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary: #ff4757;
+  --base-100: #1a1a1a;
+  --text-dark: #ffffff;
+}
+
+[data-theme="valentine"] {
+  --primary: #ff6b8b;
+  --base-100: #fff5f7;
+}
+
+/* More Custom Classes for Expansion (e.g., for future features) */
+.extra-animation {
+  animation: extraBounce 1s ease-in-out;
+}
+@keyframes extraBounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Padding and Margin Utilities (if not covered by Tailwind) */
+.p-custom {
+  padding: 1.5rem;
+}
+
+.m-custom {
+  margin: 1.5rem;
+}
+
+/* Shadow Variations */
+.shadow-custom {
+  box-shadow: var(--shadow);
+}
+
+/* Transition Variations */
+.transition-custom {
+  transition: var(--transition);
+}
+
+/* Font Family Overrides */
+.font-cinzel {
+  font-family: "Cinzel", serif;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
+/* Letter Spacing */
+.letter-spacing-wider {
+  letter-spacing: 1.5px;
+}
+
+/* Line Height Variations */
+.leading-custom {
+  line-height: 1.7;
+}
+
+/* Opacity Levels */
+.opacity-80 {
+  opacity: 0.8;
+}
+
+/* Z-Index Layers */
+.z-5 {
+  z-index: 5;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+/* Filter Effects */
+.filter-drop-shadow {
+  filter: drop-shadow(0 4px 8px rgba(255, 107, 139, 0.3));
+}
+
+/* Transform Origins */
+.transform-origin-center {
+  transform-origin: center;
+}
+
+/* Scrollbar Customizations for Other Elements */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Hover Effects */
+.heart-toggle:hover .heart-svg {
+  fill: #ff3742;
+  transform: scale(1.1);
+}
+
+/* Focus Styles for Accessibility */
+.toggle-input:focus + .heart {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print Styles (for printing the letter) */
+@media print {
+  .instruction,
+  .theme-switcher,
+  .btn {
+    display: none;
+  }
+  .message-card {
+    max-height: none !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  body {
+    background: white !important;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .message-card {
+    max-height: 90vh !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: more) {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .heart-svg {
+    fill: black !important;
+  }
+}
+
+/* Color Scheme Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-light: #1a1a1a;
+    --text-dark: #ffffff;
+  }
+}
+
+/* Additional Keyframes for Particle Effects */
+@keyframes particleBurst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Expand with More Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility Classes for Animations */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.5s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.5s ease-in-out;
+}
+
+.animate-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* More Responsive Breakpoints */
+@media (min-width: 1536px) {
+  /* 2XL */
+  .message-card {
+    width: 40% !important;
+  }
+}
+
+/* Touch Device Adjustments */
+@media (hover: none) {
+  .heart-toggle {
+    transform: scale(1.2); /* Larger for touch */
+  }
+}
+
+/* End of Custom CSS - Total lines expanded with comments and variations */
