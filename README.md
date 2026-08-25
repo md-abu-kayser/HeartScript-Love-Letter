@@ -27,19 +27,6 @@
 <!-- Languages & Web Standards -->
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![ECMAScript Spec](https://img.shields.io/badge/ECMAScript-262-7A0BC0?logo=ecmascript\&logoColor=white)](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
-
-## Plain docs links
-
-- HTML (MDN) docs: [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- CSS (MDN) docs: [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- Tailwind CSS docs: [https://tailwindcss.com/docs/](https://tailwindcss.com/docs/)
-- PostCSS docs / postcss.config: [https://postcss.org/](https://postcss.org/)
-- daisyUI docs: [https://daisyui.com/](https://daisyui.com/)
-- Google Fonts docs: [https://fonts.google.com/](https://fonts.google.com/)
-- Heroicons docs: [https://heroicons.com/](https://heroicons.com/)
-- JavaScript (MDN) docs: [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- ECMAScript (spec, ECMA-262) docs: [https://www.ecma-international.org/publications-and-standards/standards/ecma-262/](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
 
 ---
 
